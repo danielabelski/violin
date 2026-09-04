@@ -131,12 +131,17 @@ models:
     provider: together                  # together | openai
     model: openai/whisper-large-v3      # together → openai/whisper-large-v3 | openai → whisper-1
   translation:
-    provider: together                  # together | openai
-    model: deepseek-ai/DeepSeek-V4-Pro  # together → deepseek-ai/DeepSeek-V4-Pro | openai → gpt-5.5
+    provider: together                       # together | openai
+    model: deepseek-ai/DeepSeek-V4-Pro-0813  # together → deepseek-ai/DeepSeek-V4-Pro-0813 | openai → gpt-5.5
   tts:
-    provider: together                  # together | elevenlabs | openai
-    model: cartesia/sonic-3             # together → cartesia/sonic-3 | elevenlabs → eleven_v3 | openai → tts-1-hd
+    provider: together                       # together | elevenlabs | openai
+    model: cartesia/sonic-3                  # together → cartesia/sonic-3 | elevenlabs → eleven_v3 | openai → tts-1-hd
+  chat:
+    provider: together                       # together | openai — must be vision-capable
+    model: zai-org/GLM-5.3-Flash             # together → zai-org/GLM-5.3-Flash | openai → gpt-5.5
 ```
+
+> The `chat` stage is a reasoning model by default, and it spends part of `chat.max_tokens` on thinking before it answers. If you point it at a different model, keep that budget generous (the shipped default is `4096`) — too tight and the API returns an empty answer with `finish_reason: length`.
 
 ### Production overrides
 

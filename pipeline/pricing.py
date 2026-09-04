@@ -12,7 +12,7 @@ Sources (re-check these pages when bumping LAST_UPDATED):
 
 from __future__ import annotations
 
-LAST_UPDATED = "2026-05-12"   # bump this whenever any rate below changes
+LAST_UPDATED = "2026-09-03"   # bump this whenever any rate below changes
 
 # USD per audio minute.
 WHISPER: dict[str, float] = {
@@ -29,7 +29,7 @@ TTS: dict[str, dict[str, float]] = {
 
 # USD per 1,000,000 tokens (input / output split).
 TRANSLATION: dict[str, dict[str, float]] = {
-    "together": {"per_m_input_tokens": 0.30, "per_m_output_tokens": 1.20},
+    "together": {"per_m_input_tokens": 1.32, "per_m_output_tokens": 3.96},  # DeepSeek-V4-Pro-0813
     "openai":   {"per_m_input_tokens": 0.75, "per_m_output_tokens": 4.50},
 }
 

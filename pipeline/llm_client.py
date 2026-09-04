@@ -19,7 +19,7 @@ def _parse_translation_config(cfg: dict[str, Any]) -> tuple[str, str]:
           provider: openai
           model: gpt-4.1
         # legacy (treated as together)
-        translation: "Qwen/Qwen3.5-397B-A17B"
+        translation: "deepseek-ai/DeepSeek-V4-Pro-0813"
     """
     entry = cfg["models"]["translation"]
     if isinstance(entry, dict):
@@ -76,9 +76,9 @@ def _parse_chat_config(cfg: dict[str, Any]) -> tuple[str, str]:
         # current
         chat:
           provider: together
-          model: Qwen/Qwen3.5-397B-A17B
+          model: zai-org/GLM-5.3-Flash
         # legacy
-        chat: "Qwen/Qwen3.5-397B-A17B"
+        chat: "zai-org/GLM-5.3-Flash"
     """
     entry = cfg["models"]["chat"]
     if isinstance(entry, dict):

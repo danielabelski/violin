@@ -7,14 +7,14 @@ models:
     provider: together                  # "together" | "openai"
     model: openai/whisper-large-v3      # together → openai/whisper-large-v3 | openai → whisper-1
   translation:
-    provider: together                  # "together" | "openai"
-    model: deepseek-ai/DeepSeek-V4-Pro  # together → deepseek-ai/DeepSeek-V4-Pro | openai → gpt-5.5
+    provider: together                       # "together" | "openai"
+    model: deepseek-ai/DeepSeek-V4-Pro-0813  # together → deepseek-ai/DeepSeek-V4-Pro-0813 | openai → gpt-5.5
   tts:
-    provider: together                  # "together" | "elevenlabs" | "openai"
-    model: cartesia/sonic-3             # together → cartesia/sonic-3 | elevenlabs → eleven_v3 | openai → tts-1-hd
+    provider: together                       # "together" | "elevenlabs" | "openai"
+    model: cartesia/sonic-3                  # together → cartesia/sonic-3 | elevenlabs → eleven_v3 | openai → tts-1-hd
   chat:
-    provider: together                  # "together" | "openai" — must be vision-capable (sees sampled video frames)
-    model: Qwen/Qwen3.5-397B-A17B       # together → Qwen/Qwen3.5-397B-A17B | openai → gpt-5.5
+    provider: together                       # "together" | "openai" — must be vision-capable (sees sampled video frames)
+    model: zai-org/GLM-5.3-Flash             # together → zai-org/GLM-5.3-Flash | openai → gpt-5.5
 
 # ── Preferences ─────────────────────────────────────────────
 # What to use when a request doesn't explicitly pick a style/voice.
@@ -85,4 +85,6 @@ chat:
   frame_interval_seconds: 10
   max_frames: 6
   temperature: 0.2
-  max_tokens: 512
+  max_tokens: 4096   # GLM-5.3-Flash reasons before answering (500–1500 thinking tokens; the
+                     # enable_thinking:False hint is ignored), so a tight budget here returns
+                     # an empty answer with finish_reason=length. Only generated tokens bill.
