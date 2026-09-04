@@ -48,6 +48,7 @@ violin-api = "run_api:main"
 [project.urls]
 Repository = "https://github.com/shang-zhu/Violin"
 Issues = "https://github.com/shang-zhu/Violin/issues"
+Changelog = "https://github.com/shang-zhu/Violin/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["hatchling"]
